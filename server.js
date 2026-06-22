@@ -6,6 +6,9 @@ import propertiesRouter from "./routes/properties.js";
 const app = express();
 const port = 3000;
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 // middleware 
 app.use(express.json());
 
@@ -27,6 +30,10 @@ app.set("views", "./views");
 
 // router"
 app.get("/dashboard", (req, res) => {
+  res.render("index");
+});
+
+app.get("/", (req, res) => {
   res.render("index");
 });
 

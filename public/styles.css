@@ -1,8 +1,9 @@
 body {
   font-family: Arial;
   padding: 20px;
+  background-color: blue;
 }
 
 h1 {
-  color: black;
+  color: rgb(191, 21, 21);
 }

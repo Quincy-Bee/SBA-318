@@ -8,10 +8,13 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
+  console.log(req.body);
+
   const newClient = {
     id: clients.length + 1,
     name: req.body.name
   };
+
   clients.push(newClient);
   res.json(newClient);
 });
@@ -20,9 +23,6 @@ router.delete("/:id", (req, res) => {
   clients = clients.filter(c => c.id != req.params.id);
   res.json({ message: "deleted" });
 });
-
-export default router;
-
 
 router.patch("/:id", (req, res) => {
   const client = clients.find(c => c.id == req.params.id);
@@ -33,3 +33,5 @@ router.patch("/:id", (req, res) => {
 
   res.json(client);
 });
+
+export default router;
