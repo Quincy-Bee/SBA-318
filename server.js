@@ -21,6 +21,11 @@ const addTime = (req, res, next) => {
   next();
 };
 
+//views
+app.set("view engine", "pug");
+app.set("views", "./views");
+
+app.use(express.static("public"));
 app.use(logger);
 app.use(addTime);
 
