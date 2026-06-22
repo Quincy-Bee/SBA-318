@@ -25,7 +25,7 @@ const addTime = (req, res, next) => {
 app.set("view engine", "pug");
 app.set("views", "./views");
 
-// route
+// router"
 app.get("/dashboard", (req, res) => {
   res.render("index");
 });

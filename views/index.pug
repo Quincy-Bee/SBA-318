@@ -1,0 +1,18 @@
+html
+  head
+    title CRM Dashboard
+    link(rel="stylesheet", href="/style.css")
+  body
+    h1 Real Estate CRM
+
+    h2 Add Client
+
+    form(action="/clients" method="POST")
+      input(type="text" name="name" placeholder="Client name")
+      button(type="submit") Add
+
+    h2 Links
+    ul
+      li: a(href="/clients") Clients
+      li: a(href="/leads") Leads
+      li: a(href="/properties") Properties
