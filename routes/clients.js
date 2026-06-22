@@ -8,7 +8,8 @@ let clients = [
   { id: 4, name: "Levi Gold" },
   { id: 5, name: "Kanye West" },
   { id: 6, name: "Barry Gordy" },
-  { id: 7, name: "Mike Tyson" }
+  { id: 7, name: "Mike Tyson" },
+  { id: 8, name: "Steve Austin" },
 ];
 
 router.get("/", (req, res) => {
