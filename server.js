@@ -1,27 +1,34 @@
-import express from 'express';
+import express from "express";
+import clientsRouter from "./routes/clients.js";
+import leadsRouter from "./routes/leads.js";
+import propertiesRouter from "./routes/properties.js";
+
 const app = express();
 const port = 3000;
 
-// middleware
+// middleware 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-});
-
-//moddleware 1
-const activityLogger = (req, res, next) => {
-  console.log(`[CRM ACTIVITY] ${req.method} ${req.url}`);
+// custom middleware 1
+const logger = (req, res, next) => {
+  console.log(req.method, req.url);
   next();
 };
 
-//middleware 2
-const leadSourceTagger = (req, res, next) => {
-  req.leadSource = req.query.source || "unknown";
+// custom middleware 2
+const addTime = (req, res, next) => {
+  req.time = new Date().toISOString();
   next();
-}
+};
+
+app.use(logger);
+app.use(addTime);
+
+// routers
+app.use("/clients", clientsRouter);
+app.use("/leads", leadsRouter);
+app.use("/properties", propertiesRouter);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-}); 
+  console.log(`Running on http://localhost:${port}`);
+});
