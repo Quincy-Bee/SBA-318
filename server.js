@@ -25,6 +25,11 @@ const addTime = (req, res, next) => {
 app.set("view engine", "pug");
 app.set("views", "./views");
 
+// route
+app.get("/dashboard", (req, res) => {
+  res.render("index");
+});
+
 app.use(express.static("public"));
 app.use(logger);
 app.use(addTime);
