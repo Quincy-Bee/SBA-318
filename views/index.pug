@@ -6,13 +6,14 @@ html
   body
     h1 QB REALTY GROUP CRM 
 
-    h2 Add Client
+    h2 Add Client Name to CRM
 
     form(action="/clients" method="POST")
       input(type="text" name="name" placeholder="Client name")
+
       button(type="submit") Add
 
-    h2 Links
+    h2 Navigation 
     ul
       li: a(href="/clients") Clients
       li: a(href="/leads") Leads
