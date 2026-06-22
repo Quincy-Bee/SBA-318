@@ -22,3 +22,14 @@ router.delete("/:id", (req, res) => {
 });
 
 export default router;
+
+
+router.patch("/:id", (req, res) => {
+  const client = clients.find(c => c.id == req.params.id);
+
+  if (!client) return res.status(404).json({ message: "Not found" });
+
+  client.name = req.body.name || client.name;
+
+  res.json(client);
+});
